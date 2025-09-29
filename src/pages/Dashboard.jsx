@@ -1,17 +1,5 @@
 import React, { useState } from 'react';
-import { 
-  BookOpen, 
-  Users, 
-  Award, 
-  Calendar, 
-  TrendingUp, 
-  Bell,
-  Search,
-  Filter,
-  Play,
-  Clock,
-  Star
-} from 'lucide-react';
+import { BookOpen, Users, Award, Calendar, TrendingUp, Bell, Search, ListFilter as Filter, Play, Clock, Star } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 

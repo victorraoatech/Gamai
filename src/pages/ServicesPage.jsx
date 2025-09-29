@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { services } from "../reusables/Data.js";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CircleCheck as CheckCircle } from "lucide-react";
 
 const ServicesPage = () => {
   const features = [
