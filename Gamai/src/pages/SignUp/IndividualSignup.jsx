@@ -45,6 +45,7 @@ const IndividualSignup = () => {
                    Sign Up
               </button>
          </form>
+
      );
 };
 

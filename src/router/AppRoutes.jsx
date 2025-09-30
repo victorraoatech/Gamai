@@ -11,8 +11,7 @@ const SignupIndividual = lazy(() => import('../pages/SignUp/IndividualSignup.jsx
 const SignupInstructor = lazy(() => import('../pages/SignUp/InstructorSignup.jsx'));
 const AboutUsPage = lazy(() => import('../pages/About-us.jsx'));
 const ServicesPage = lazy(() => import('../pages/ServicesPage.jsx'));
-const ContactUs = lazy(() => import('../pages/Contact-us.jsx'));
-
+const ContactPage = lazy(() => import('../pages/Contact.jsx'));
 
 const withSuspense = (Component) => (
     <Suspense fallback={<LoadingPage />}>
@@ -32,10 +31,6 @@ export const router = createBrowserRouter([
      {
           path: '/login',
           element: withSuspense(Login),
-     },
-     {
-          path:"*",
-          element: withSuspense(NotFound),
      },
      {
           path: "/signup/organisation",
@@ -58,61 +53,11 @@ export const router = createBrowserRouter([
           element: withSuspense(ServicesPage),
      },
      {
-          path: "/contact-us",
-          element: withSuspense(ContactUs),
-     },
-
-     {
-          path:"",
-          element: withSuspense(),
+          path:"/contact",
+          element: withSuspense(ContactPage),
      },
      {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-     {
-          path:"",
-          element: withSuspense(),
-     },
-
-])
+          path:"*",
+          element: withSuspense(NotFound),
+     }
+]);
