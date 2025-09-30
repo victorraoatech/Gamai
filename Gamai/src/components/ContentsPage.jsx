@@ -59,7 +59,7 @@ const ContentsPage = () => {
                                       <img
                                           src={course.image}
                                           alt={course.title}
-                                          className="w-full h-full object-cover rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none"
+                                          className="w-full h-full object-full rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none"
                                       />
                                       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-purple-800/40 to-transparent flex flex-col justify-end p-6 rounded-t-3xl lg:rounded-l-3xl lg:rounded-tr-none">
                                            <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white">

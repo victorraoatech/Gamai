@@ -1,71 +1,43 @@
-import React, { useState } from "react";
-import { validateInstructor } from "../../reusables/validation";
+import React from "react";
 
 const InstructorSignup = () => {
-     const [formData, setFormData] = useState({ name: "", email: "", password: "" });
-     const [errors, setErrors] = useState({});
-
-     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-     const handleSubmit = (e) => {
-          e.preventDefault();
-          const validationErrors = validateInstructor(formData);
-          if (Object.keys(validationErrors).length === 0) {
-               console.log("Instructor signup data:", formData);
-               // API call or navigation
-          } else {
-               setErrors(validationErrors);
-          }
-     };
-
      return (
-         <div className="max-w-md mx-auto mt-12 p-6 bg-[#D2CCD9] rounded-xl shadow-lg">
-              <h2 className="text-2xl font-bold mb-6 text-purple-800">Sign Up as Instructor</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                   <div>
-                        <label className="block font-medium">Full Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2 mt-1"
-                        />
-                        {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+         <form className="space-y-6">
+              {/* Personal Info */}
+              <div>
+                   <h3 className="text-lg font-semibold text-gray-800 mb-2">Personal Information</h3>
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Full Name" required className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
+                        <input type="text" placeholder="Expertise (e.g. Web Dev, AI)" required className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
+                        <input type="tel" placeholder="Phone Number" className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
+                        <input type="text" placeholder="Country" className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
                    </div>
+              </div>
 
-                   <div>
-                        <label className="block font-medium">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2 mt-1"
-                        />
-                        {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+              {/* Account Info */}
+              <div>
+                   <h3 className="text-lg font-semibold text-gray-800 mb-2">Account Information</h3>
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="email" placeholder="Email" required className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
+                        <input type="password" placeholder="Password" required className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
+                        <input type="password" placeholder="Confirm Password" required className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
                    </div>
+              </div>
 
-                   <div>
-                        <label className="block font-medium">Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2 mt-1"
-                        />
-                        {errors.password && <p className="text-red-600 text-sm mt-1">{errors.password}</p>}
+              {/* Professional Info */}
+              <div>
+                   <h3 className="text-lg font-semibold text-gray-800 mb-2">Professional Info</h3>
+                   <textarea placeholder="Short bio about your teaching experience" rows="4" className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <input type="text" placeholder="LinkedIn Profile URL" className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
+                        <input type="text" placeholder="Portfolio / Website" className="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"/>
                    </div>
+              </div>
 
-                   <button
-                       type="submit"
-                       className="w-full bg-purple-700 text-white py-2 rounded-lg hover:bg-purple-800 transition"
-                   >
-                        Sign Up
-                   </button>
-              </form>
-         </div>
+              <button type="submit" className="w-full py-3 mt-4 rounded-xl font-semibold bg-gradient-to-r from-orange-500 to-yellow-500 text-white shadow-md hover:scale-105 transition-transform">
+                   Sign Up
+              </button>
+         </form>
      );
 };
 

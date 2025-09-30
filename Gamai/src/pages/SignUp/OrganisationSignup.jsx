@@ -1,72 +1,125 @@
-import React, { useState } from "react";
-import { validateOrganisation } from "../../reusables/validation";
+import React from "react";
 
-const OrganisationSignup = () => {
-     const [formData, setFormData] = useState({ name: "", email: "", password: "" });
-     const [errors, setErrors] = useState({});
-
-     const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-
-     const handleSubmit = (e) => {
-          e.preventDefault();
-          const validationErrors = validateOrganisation(formData);
-          if (Object.keys(validationErrors).length === 0) {
-               console.log("Organisation signup data:", formData);
-               // API call or navigation
-          } else {
-               setErrors(validationErrors);
-          }
-     };
-
+const OrganizationSignup = () => {
      return (
-         <div className="max-w-md mx-auto mt-12 p-6 bg-[#D2CCD9] rounded-xl shadow-lg">
-              <h2 className="text-2xl font-bold mb-6 text-purple-800">Sign Up as Organisation</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                   <div>
-                        <label className="block font-medium">Organisation Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2 mt-1"
-                        />
-                        {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+         <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50 flex items-center justify-center px-4 py-10">
+              <div className="bg-white shadow-xl rounded-2xl w-full max-w-4xl p-8 md:p-12">
+                   {/* Header */}
+                   <div className="text-center mb-8">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+                             Organization Signup
+                        </h2>
+                        <p className="text-gray-600 mt-2">
+                             Create your organization account and manage everything in one place.
+                        </p>
                    </div>
 
-                   <div>
-                        <label className="block font-medium">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2 mt-1"
-                        />
-                        {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
-                   </div>
+                   <form className="space-y-10">
+                        {/* Organization Info */}
+                        <div>
+                             <h3 className="text-lg font-semibold text-orange-600 mb-4">
+                                  🏢 Organization Details
+                             </h3>
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                  <input
+                                      type="text"
+                                      placeholder="Organization Name"
+                                      required
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="text"
+                                      placeholder="Industry / Sector"
+                                      required
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="text"
+                                      placeholder="Registration Number"
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="url"
+                                      placeholder="Website (optional)"
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="number"
+                                      placeholder="Number of Employees"
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="text"
+                                      placeholder="Headquarters Location"
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                             </div>
+                        </div>
 
-                   <div>
-                        <label className="block font-medium">Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            className="w-full border rounded px-3 py-2 mt-1"
-                        />
-                        {errors.password && <p className="text-red-600 text-sm mt-1">{errors.password}</p>}
-                   </div>
+                        {/* Contact Info */}
+                        <div>
+                             <h3 className="text-lg font-semibold text-orange-600 mb-4">
+                                  👤 Contact Person
+                             </h3>
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                  <input
+                                      type="text"
+                                      placeholder="Full Name"
+                                      required
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="text"
+                                      placeholder="Job Title"
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="tel"
+                                      placeholder="Phone Number"
+                                      required
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="email"
+                                      placeholder="Email"
+                                      required
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                             </div>
+                        </div>
 
-                   <button
-                       type="submit"
-                       className="w-full bg-purple-700 text-white py-2 rounded-lg hover:bg-purple-800 transition"
-                   >
-                        Sign Up
-                   </button>
-              </form>
+                        {/* Security */}
+                        <div>
+                             <h3 className="text-lg font-semibold text-orange-600 mb-4">
+                                  🔒 Account Security
+                             </h3>
+                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                  <input
+                                      type="password"
+                                      placeholder="Password"
+                                      required
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                                  <input
+                                      type="password"
+                                      placeholder="Confirm Password"
+                                      required
+                                      className="px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:outline-none shadow-sm"
+                                  />
+                             </div>
+                        </div>
+
+                        {/* Submit */}
+                        <button
+                            type="submit"
+                            className="w-full py-3 mt-6 rounded-xl font-semibold bg-gradient-to-r from-orange-500 to-yellow-500 text-white shadow-lg hover:scale-105 transition-transform"
+                        >
+                             🚀 Sign Up
+                        </button>
+                   </form>
+              </div>
          </div>
      );
 };
 
-export default OrganisationSignup;
+export default OrganizationSignup;
