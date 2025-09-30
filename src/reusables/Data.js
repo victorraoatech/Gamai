@@ -5,7 +5,7 @@ import Softtesting from "../assets/SoftwareTesting.jpg";
 import WebDesign from "../assets/WebDesign.jpg";
 import Data from "../assets/Data.jpg";
 import ProductDesign from "../assets/ProductDesign.jpg";
-import {BarChart3, BookOpen, CreditCard, GraduationCap} from "lucide-react";
+import { ChartBar as BarChart3, BookOpen, CreditCard, GraduationCap } from "lucide-react";
 import React from "react";
 
 export const courses = [
